@@ -1,9 +1,14 @@
-"use client";
+import HomeCarousel from "@/component/static/web/home/carousel";
 
-import axios from "axios";
-import parse from "html-react-parser";
-import { useState } from "react";
+const Inicio = () => {
+  return (
+    <>
+      <div>
+        <HomeCarousel />
+        <div className="container mx-auto py-5">hola</div>
+      </div>
+    </>
+  );
+};
 
-export default function Inicio() {
-  return <></>;
-}
+export default Inicio;

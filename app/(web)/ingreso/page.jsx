@@ -1,3 +1,9 @@
-export default function Ingreso() {
-  return <h1>Ingreso</h1>;
-}
+const Ingreso = () => {
+  return (
+    <>
+      <h1>Ingreso</h1>
+    </>
+  );
+};
+
+export default Ingreso;

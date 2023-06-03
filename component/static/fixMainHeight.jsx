@@ -24,10 +24,12 @@ const componentDivMount = () => {
   instance.appendChild(script);
 };
 
-export const FixMainHeight = () => {
+const FixMainHeight = () => {
   useEffect(() => {
     componentDivMount();
   });
 
   return <div ref={(el) => (instance = el)}></div>;
 };
+
+export default FixMainHeight;
