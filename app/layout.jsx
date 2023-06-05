@@ -1,8 +1,10 @@
+"use client";
+
 import "@/public/css/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import FixMainHeight from "@/component/static/fixMainHeight";
-import { ToastContainer, toast } from "react-toastify";
 import SetToast from "@/component/static/setToast";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata = {
   title: "Next.js",
@@ -12,10 +14,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="overflow-scroll">
-        {children}
-        <SetToast />
-        <FixMainHeight />
+      <body className="overflow-y-scroll">
+        <SessionProvider>
+          {children}
+          <SetToast />
+          <FixMainHeight />
+        </SessionProvider>
       </body>
     </html>
   );

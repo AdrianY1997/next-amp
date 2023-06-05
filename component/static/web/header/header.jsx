@@ -2,6 +2,7 @@ import FaIcon from "@/component/faIcon";
 import { faBell, faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import AuthButton from "./authButton";
 
 const WebHeader = () => {
   return (
@@ -41,9 +42,7 @@ const WebHeader = () => {
                 </Link>
               </li>
               <li>
-                <Link href={"/ingreso"}>
-                  <FaIcon icon={faUserCircle} />
-                </Link>
+                <AuthButton />
               </li>
             </ul>
           </div>

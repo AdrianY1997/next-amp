@@ -1,5 +1,5 @@
-import WebFooter from "@/component/static/web/footer";
-import WebHeader from "@/component/static/web/header";
+import WebFooter from "@/component/static/web/footer/footer";
+import WebHeader from "@/component/static/web/header/header";
 
 export const metadata = {
   title: "Next.js",

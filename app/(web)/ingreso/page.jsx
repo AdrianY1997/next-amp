@@ -1,4 +1,4 @@
-import SignupForm from "@/component/static/web/sign-up/form";
+import SignupForm from "@/component/static/web/login/form";
 
 const Ingreso = () => {
   return (

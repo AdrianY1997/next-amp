@@ -20,6 +20,7 @@ const componentDivMount = () => {
         }
         resizeMain();
         window.addEventListener("resize", resizeMain);
+        (() => { resizeMain() })()
       `;
   instance.appendChild(script);
 };

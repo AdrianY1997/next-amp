@@ -1,6 +1,8 @@
 "use client";
 
+import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const SignupForm = () => {
@@ -17,20 +19,17 @@ const SignupForm = () => {
 
   const logIn = async (e) => {
     e.preventDefault();
-    const formData = new URLSearchParams();
-    formData.append("email", email);
-    formData.append("password", password);
 
-    const user = await fetch("/api/users/" + email, {
-      method: "POST",
-      body: formData.toString(),
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
+    signIn("credentials", {
+      redirect: false,
+      email: email,
+      password: password,
     });
-
-    console.log(await user.json());
   };
+
+  const { status } = useSession();
+
+  if (status === "authenticated") redirect("/dashboard");
 
   return (
     <>
@@ -38,7 +37,7 @@ const SignupForm = () => {
         <div className="py-8 space-y-4 text-gray-700 text-lg leading-7">
           <div className="relative">
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="email"
               name="email"
               type="text"
@@ -47,7 +46,7 @@ const SignupForm = () => {
               onChange={handleEmailChange}
             />
             <label
-              for="email"
+              htmlFor="email"
               className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
             >
               Correo Electrónico
@@ -55,7 +54,7 @@ const SignupForm = () => {
           </div>
           <div className="relative">
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="password"
               name="password"
               type="password"
@@ -64,7 +63,7 @@ const SignupForm = () => {
               onChange={handlePasswordChange}
             />
             <label
-              for="password"
+              htmlFor="password"
               className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
             >
               Contraseña
