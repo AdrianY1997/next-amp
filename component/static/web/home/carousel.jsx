@@ -29,18 +29,21 @@ const HomeCarousel = () => {
     <>
       <div className="relative max-w-[1800px] mx-auto">
         <Image
+          alt="feature 1"
           priority
           className="animate-fade-out home-carousel-image"
           src={banner1}
           data-index={1}
         />
         <Image
+          alt="feature 2"
           priority
           className="animate-fade-out home-carousel-image hidden"
           src={banner2}
           data-index={2}
         />
         <Image
+          alt="feature 3"
           priority
           className="animate-fade-out home-carousel-image hidden"
           src={banner3}

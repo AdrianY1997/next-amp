@@ -4,6 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const SignupForm = () => {
   const [email, setEmail] = useState("");
@@ -20,11 +21,21 @@ const SignupForm = () => {
   const logIn = async (e) => {
     e.preventDefault();
 
-    signIn("credentials", {
+    const response = await signIn("credentials", {
       redirect: false,
       email: email,
       password: password,
     });
+
+    if (response.error) {
+      const error = JSON.parse(response.error);
+      switch (error.status) {
+        case "error":
+          return toast.error(error.message);
+        case "warning":
+          return toast.warning(error.message);
+      }
+    }
   };
 
   const { status } = useSession();

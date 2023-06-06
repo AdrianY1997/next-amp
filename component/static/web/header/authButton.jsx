@@ -44,15 +44,15 @@ const ProfileMenuButton = () => {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items
-            class="absolute right-0 z-10 mt-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="absolute right-0 z-10 mt-10 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="none"
           >
             <Menu.Item>
               <Link
                 href="/dashboard"
-                class="text-gray-700 block px-4 py-2 text-sm"
+                className="text-gray-700 block px-4 py-2 text-sm"
                 role="menuitem"
-                tabindex="-1"
+                tabIndex="-1"
                 id="menu-item-0"
               >
                 Dashboard
@@ -61,9 +61,9 @@ const ProfileMenuButton = () => {
             <Menu.Item>
               <button
                 type="submit"
-                class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
                 role="menuitem"
-                tabindex="-1"
+                tabIndex="-1"
                 id="menu-item-3"
                 onClick={closeSession}
               >

@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 
 const ListItems = ({ children }) => {
   return (
-    <li
-      className="flex justify-between py-2 px-4 shadow-sm shadow-gray rounded-xl bg-white"
-      key={children.id}
-    >
+    <li className="flex justify-between py-2 px-4 shadow-sm shadow-gray rounded-xl bg-white">
       <div>
         <p>{children.name}</p>
       </div>
@@ -18,7 +15,9 @@ const ListItems = ({ children }) => {
 };
 
 const Productos = () => {
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([
+    { id: 0, name: "No hay items", price: "" },
+  ]);
 
   const getItems = async () => {
     const response = await fetch(`/api/products`, {
@@ -43,7 +42,7 @@ const Productos = () => {
         <ul className="py-5 flex flex-col gap-2">
           {items &&
             items.map((e) => {
-              return <ListItems>{e}</ListItems>;
+              return <ListItems key={e.id}>{e}</ListItems>;
             })}
         </ul>
       </div>

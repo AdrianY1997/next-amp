@@ -2,7 +2,6 @@
 
 import "@/public/css/globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import FixMainHeight from "@/component/static/fixMainHeight";
 import SetToast from "@/component/static/setToast";
 import { SessionProvider } from "next-auth/react";
 
@@ -18,7 +17,6 @@ const RootLayout = ({ children }) => {
         <SessionProvider>
           {children}
           <SetToast />
-          <FixMainHeight />
         </SessionProvider>
       </body>
     </html>
