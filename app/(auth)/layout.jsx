@@ -3,8 +3,8 @@
 import AuthHeader from "@/component/static/auth/header/header";
 import AuthSideMenu from "@/component/static/auth/side/menu";
 import { useSession } from "next-auth/react";
-import { redirect, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const metadata = {
   title: "Next.js",
@@ -13,6 +13,14 @@ export const metadata = {
 
 const AuthLayout = ({ children }) => {
   const { data: session } = useSession();
+  const [minHeight, setMinHeight] = useState("0");
+
+  useEffect(() => {
+    const headerHeight = document.querySelector("header").clientHeight;
+    const footerHeight = document.querySelector("footer").clientHeight;
+
+    setMinHeight(headerHeight + footerHeight);
+  });
 
   if (!session) {
     return redirect("/ingreso");
@@ -26,7 +34,9 @@ const AuthLayout = ({ children }) => {
           <header>
             <AuthHeader />
           </header>
-          <main>{children}</main>
+          <main style={{ minHeight: `calc(100vh - ${minHeight}px)` }}>
+            {children}
+          </main>
           <footer>Footer</footer>
         </div>
       </div>

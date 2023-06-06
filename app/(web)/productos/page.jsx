@@ -25,7 +25,8 @@ const Productos = () => {
     });
 
     const products = await response.json();
-    if (products.length == 0) {
+
+    if (products.length == 0 || products.error) {
       setItems([{ id: 0, name: "No hay items", price: "" }]);
     } else {
       setItems(products);
@@ -35,6 +36,7 @@ const Productos = () => {
   useEffect(() => {
     getItems();
   }, []);
+
   return (
     <>
       <div className="p-5">

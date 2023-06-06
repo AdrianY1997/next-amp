@@ -2,7 +2,7 @@
 
 import WebFooter from "@/component/static/web/footer/footer";
 import WebHeader from "@/component/static/web/header/header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const metadata = {
   title: "Next.js",
@@ -10,9 +10,13 @@ export const metadata = {
 };
 
 const WebLayout = ({ children }) => {
+  const [minHeight, setMinHeight] = useState("0");
+
   useEffect(() => {
     const headerHeight = document.querySelector("header").clientHeight;
     const footerHeight = document.querySelector("footer").clientHeight;
+
+    setMinHeight(headerHeight + footerHeight);
   });
 
   return (
@@ -20,7 +24,9 @@ const WebLayout = ({ children }) => {
       <header>
         <WebHeader />
       </header>
-      <main>{children}</main>
+      <main style={{ minHeight: `calc(100vh - ${minHeight}px)` }}>
+        {children}
+      </main>
       <footer>
         <WebFooter />
       </footer>

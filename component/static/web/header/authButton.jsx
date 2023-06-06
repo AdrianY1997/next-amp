@@ -61,7 +61,7 @@ const ProfileMenuButton = () => {
             <Menu.Item>
               <button
                 type="submit"
-                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                className="text-gray-700 block w-full px-4 py-2 text-left text-sm font-semibold"
                 role="menuitem"
                 tabIndex="-1"
                 id="menu-item-3"

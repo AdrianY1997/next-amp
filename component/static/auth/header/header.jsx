@@ -13,7 +13,6 @@ import { redirect } from "next/navigation";
 import { Fragment, useState } from "react";
 
 const AuthHeader = () => {
-  const [section, setSection] = useState("Home");
   const { data, status } = useSession({
     required: true,
     onUnauthenticated() {
@@ -29,7 +28,7 @@ const AuthHeader = () => {
     <>
       <div className="flex justify-between bg-[#060606] px-5 py-2">
         <div className="self-center">
-          <h1 className="text-white">{section}</h1>
+          <h1 className="text-white">Dashboard</h1>
         </div>
         <div>
           <Menu as={"div"} className="relative">
@@ -53,13 +52,13 @@ const AuthHeader = () => {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items
-                  class="absolute right-0 z-10 top-full mt-5 w-56 origin-top-right rounded-md bg-[#060606] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="absolute right-0 z-10 top-full mt-5 w-56 origin-top-right rounded-md bg-[#060606] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="none"
                 >
                   <Menu.Item>
                     <button
                       type="submit"
-                      class="text-gray-700 block w-full px-4 py-2 text-left text-sm text-white"
+                      className="block w-full px-4 py-2 text-left text-sm text-white"
                       role="menuitem"
                       tabindex="-1"
                       id="menu-item-3"

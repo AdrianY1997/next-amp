@@ -37,11 +37,6 @@ const WebHeader = () => {
                 <Link href={"/productos"}>Productos</Link>
               </li>
               <li>
-                <Link href={"#"}>
-                  <FaIcon icon={faBell} size={"10pt"} />
-                </Link>
-              </li>
-              <li>
                 <AuthButton />
               </li>
             </ul>
