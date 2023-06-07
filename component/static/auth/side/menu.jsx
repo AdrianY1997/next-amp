@@ -9,7 +9,7 @@ import Link from "next/link";
 const AuthSideMenu = () => {
   return (
     <>
-      <div className="bg-[#060606] h-[100vh]">
+      <div className="bg-[#060606] h-[100vh] sticky top-0">
         <div className="flex justify-between items-center py-3 px-3">
           <p className="text-xl text-gray-800 font-bold border-2 border-white">
             <span className="px-1 pb-1 bg-white text-black">T</span>

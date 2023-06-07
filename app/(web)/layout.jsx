@@ -12,11 +12,16 @@ export const metadata = {
 const WebLayout = ({ children }) => {
   const [minHeight, setMinHeight] = useState("0");
 
-  useEffect(() => {
+  const fixMainHeight = () => {
     const headerHeight = document.querySelector("header").clientHeight;
     const footerHeight = document.querySelector("footer").clientHeight;
 
     setMinHeight(headerHeight + footerHeight);
+  };
+
+  useEffect(() => {
+    fixMainHeight();
+    window.addEventListener("resize", fixMainHeight);
   });
 
   return (

@@ -15,11 +15,16 @@ const AuthLayout = ({ children }) => {
   const { data: session } = useSession();
   const [minHeight, setMinHeight] = useState("0");
 
-  useEffect(() => {
+  const fixMainHeight = () => {
     const headerHeight = document.querySelector("header").clientHeight;
     const footerHeight = document.querySelector("footer").clientHeight;
 
     setMinHeight(headerHeight + footerHeight);
+  };
+
+  useEffect(() => {
+    fixMainHeight();
+    window.addEventListener("resize", fixMainHeight);
   });
 
   if (!session) {
@@ -31,7 +36,7 @@ const AuthLayout = ({ children }) => {
       <div className="flex">
         <AuthSideMenu />
         <div className="relative w-full">
-          <header>
+          <header className="sticky top-0">
             <AuthHeader />
           </header>
           <main style={{ minHeight: `calc(100vh - ${minHeight}px)` }}>
