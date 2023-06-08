@@ -67,6 +67,7 @@ const NewProduct = () => {
 
     e.target.reset();
     setCreateObjectURL(null);
+    setImage(null);
     return toast.success(
       `Se ha insertado el producto: [${product.insertId}-${productName}]`
     );
