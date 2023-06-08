@@ -60,7 +60,7 @@ const AuthHeader = () => {
                       type="submit"
                       className="block w-full px-4 py-2 text-left text-sm text-white"
                       role="menuitem"
-                      tabindex="-1"
+                      tabIndex="-1"
                       id="menu-item-3"
                       onClick={closeSession}
                     >
