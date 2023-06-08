@@ -58,6 +58,10 @@ const NewProduct = () => {
 
     const product = await response.json();
 
+    if (product.error) {
+      return toast.error(product.error.message);
+    }
+
     if (product.affectedRow == 0)
       return toast.warning("No se ha podido insertar el producto");
 

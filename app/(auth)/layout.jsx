@@ -1,5 +1,6 @@
 "use client";
 
+import AuthFooter from "@/component/static/auth/footer/footer";
 import AuthHeader from "@/component/static/auth/header/header";
 import AuthSideMenu from "@/component/static/auth/side/menu";
 import { useSession } from "next-auth/react";
@@ -42,7 +43,9 @@ const AuthLayout = ({ children }) => {
           <main style={{ minHeight: `calc(100vh - ${minHeight}px)` }}>
             {children}
           </main>
-          <footer>Footer</footer>
+          <footer>
+            <AuthFooter />
+          </footer>
         </div>
       </div>
     </>
